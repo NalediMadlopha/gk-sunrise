@@ -1,7 +1,8 @@
-package com.sunrise.app
+package com.sunrise.app.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.sunrise.app.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
