@@ -1,9 +1,9 @@
-package domain.model
+package com.sunrise.app.domain.model
 
 import android.os.Parcelable
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 private const val DELIMITER = "."
 private const val DEGREE_SYMBOL = "°"

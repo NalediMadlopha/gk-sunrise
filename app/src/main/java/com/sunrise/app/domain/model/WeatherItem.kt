@@ -1,9 +1,10 @@
-package domain.model
+package com.sunrise.app.domain.model
 
 import android.os.Parcelable
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
+import java.util.*
 
 @Parcelize
 @JsonClass(generateAdapter = true)
@@ -23,6 +24,6 @@ data class WeatherItem(
 ) : Parcelable {
 
     fun getDescriptionText(): String? {
-        return description?.capitalize()
+        return description?.capitalize(Locale.ENGLISH)
     }
 }

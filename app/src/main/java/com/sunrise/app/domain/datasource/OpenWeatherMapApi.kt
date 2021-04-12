@@ -1,7 +1,7 @@
-package domain.datasource
+package com.sunrise.app.domain.datasource
 
-import domain.model.CurrentWeatherResponse
-import domain.model.ForecastResponse
+import com.sunrise.app.domain.model.CurrentWeatherResponse
+import com.sunrise.app.domain.model.ForecastResponse
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
