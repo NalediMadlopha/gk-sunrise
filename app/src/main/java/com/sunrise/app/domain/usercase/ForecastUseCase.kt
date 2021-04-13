@@ -1,5 +1,7 @@
 package com.sunrise.app.domain.usercase
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.map
 import com.sunrise.app.core.Constants
@@ -17,6 +19,7 @@ class ForecastUseCase @Inject internal constructor(private val repository: Forec
         return repository
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun buildUseCaseObservable(params: ForecastParams?): LiveData<ForecastViewState> {
         return repository.loadForecastByCoord(
             params?.lat?.toDouble() ?: 0.0,
@@ -29,6 +32,7 @@ class ForecastUseCase @Inject internal constructor(private val repository: Forec
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun onForecastResultReady(resource: Resource<ForecastEntity>): ForecastViewState {
         val mappedList = resource.data?.list?.let { ForecastMapper().mapFrom(it) }
         resource.data?.list = mappedList
