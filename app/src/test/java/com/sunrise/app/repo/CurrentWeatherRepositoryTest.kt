@@ -2,11 +2,11 @@ package com.sunrise.app.repo
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
+import com.sunrise.app.BaseTest
 import com.sunrise.app.core.Constants.Coords.METRIC
 import com.sunrise.app.db.entity.CurrentWeatherEntity
 import com.sunrise.app.domain.datasource.currentweather.CurrentWeatherLocalDataSource
 import com.sunrise.app.domain.datasource.currentweather.CurrentWeatherRemoteDataSource
-import com.sunrise.app.utils.BaseTest
 import com.sunrise.app.utils.createSampleCurrentWeatherEntity
 import com.sunrise.app.utils.createSampleCurrentWeatherResponse
 import com.sunrise.app.utils.domain.Resource

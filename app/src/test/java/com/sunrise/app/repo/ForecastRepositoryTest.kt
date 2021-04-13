@@ -2,11 +2,11 @@ package com.sunrise.app.repo
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
+import com.sunrise.app.BaseTest
 import com.sunrise.app.core.Constants
 import com.sunrise.app.db.entity.ForecastEntity
 import com.sunrise.app.domain.datasource.forecast.ForecastLocalDataSource
 import com.sunrise.app.domain.datasource.forecast.ForecastRemoteDataSource
-import com.sunrise.app.utils.BaseTest
 import com.sunrise.app.utils.createSampleForecastEntity
 import com.sunrise.app.utils.createSampleForecastResponse
 import com.sunrise.app.utils.domain.Resource

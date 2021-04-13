@@ -2,8 +2,8 @@ package com.sunrise.app.db.dao
 
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider.getApplicationContext
+import com.sunrise.app.BaseTest
 import com.sunrise.app.db.SunriseDatabase
-import com.sunrise.app.utils.BaseTest
 import com.sunrise.app.utils.createSampleCurrentWeatherEntity
 import com.sunrise.app.utils.getOrAwaitValue
 import org.junit.After
