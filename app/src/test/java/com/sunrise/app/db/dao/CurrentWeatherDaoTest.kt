@@ -1,35 +1,25 @@
 package com.sunrise.app.db.dao
 
-import android.os.Build
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider.getApplicationContext
-import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.sunrise.app.db.SunriseDatabase
+import com.sunrise.app.utils.BaseTest
 import com.sunrise.app.utils.createSampleCurrentWeatherEntity
 import com.sunrise.app.utils.getOrAwaitValue
 import org.junit.After
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNull
 import org.junit.Before
-
-import org.junit.Assert.*
-import org.junit.Rule
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.robolectric.annotation.Config
 
-@Config(sdk = [Build.VERSION_CODES.P])
-@RunWith(AndroidJUnit4::class)
-class CurrentWeatherDaoTest {
+class CurrentWeatherDaoTest : BaseTest() {
 
     private lateinit var database: SunriseDatabase
     private lateinit var currentWeatherDao: CurrentWeatherDao
 
-    @Rule
-    @JvmField
-    val instantExecutorRule = InstantTaskExecutorRule()
-
     @Before
-    fun setUp() {
+    override fun setUp() {
+        super.setUp()
         database = Room.inMemoryDatabaseBuilder(
             getApplicationContext(),
             SunriseDatabase::class.java

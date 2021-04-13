@@ -1,34 +1,26 @@
 package com.sunrise.app.db.dao
 
-import android.os.Build
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
-import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.sunrise.app.db.SunriseDatabase
 import com.sunrise.app.db.entity.CityEntity
 import com.sunrise.app.db.entity.CoordEntity
+import com.sunrise.app.utils.BaseTest
 import com.sunrise.app.utils.createSampleForecastEntity
 import com.sunrise.app.utils.getOrAwaitValue
-import org.junit.*
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertNull
-import org.junit.runner.RunWith
-import org.robolectric.annotation.Config
+import org.junit.After
+import org.junit.Assert.*
+import org.junit.Before
+import org.junit.Test
 
-@Config(sdk = [Build.VERSION_CODES.P])
-@RunWith(AndroidJUnit4::class)
-class ForecastDaoTest {
+class ForecastDaoTest : BaseTest() {
 
     private lateinit var database: SunriseDatabase
     private lateinit var forecastDao: ForecastDao
 
-    @Rule
-    @JvmField
-    val instantExecutorRule = InstantTaskExecutorRule()
-
     @Before
-    fun setUp() {
+    override fun setUp() {
+        super.setUp()
         database = Room.inMemoryDatabaseBuilder(
             ApplicationProvider.getApplicationContext(),
             SunriseDatabase::class.java
@@ -46,7 +38,7 @@ class ForecastDaoTest {
     fun `getForecast should return null if there is not forecast in the database`() {
         val forecast = forecastDao.getForecast().getOrAwaitValue()
 
-        Assert.assertNull(forecast)
+        assertNull(forecast)
     }
 
     @Test
@@ -55,14 +47,14 @@ class ForecastDaoTest {
 
         val forecast = forecastDao.getForecast()
 
-        Assert.assertNotNull(forecast)
+        assertNotNull(forecast)
     }
 
     @Test
     fun `getForecastByCoord should return null if there is not forecast in the database`() {
         val forecast = forecastDao.getForecastByCoord(354.0, 465.0).getOrAwaitValue()
 
-        Assert.assertNull(forecast)
+        assertNull(forecast)
     }
 
     @Test
@@ -71,7 +63,7 @@ class ForecastDaoTest {
 
         val forecast = forecastDao.getForecastByCoord(354.0, 465.0)
 
-        Assert.assertNotNull(forecast)
+        assertNotNull(forecast)
     }
 
     @Test
