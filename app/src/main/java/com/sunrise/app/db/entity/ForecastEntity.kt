@@ -4,7 +4,7 @@ import android.os.Parcelable
 import androidx.room.*
 import com.sunrise.app.domain.model.ForecastResponse
 import com.sunrise.app.domain.model.ListItem
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 @Parcelize
 @Entity(tableName = "Forecast")

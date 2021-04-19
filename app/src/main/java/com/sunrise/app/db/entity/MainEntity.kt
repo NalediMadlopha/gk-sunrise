@@ -5,7 +5,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.Ignore
 import com.sunrise.app.domain.model.Main
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 @Parcelize
 @Entity(tableName = "Main")
@@ -39,5 +39,14 @@ data class MainEntity(
         seaLevel = main?.seaLevel,
         tempMax = main?.tempMax
     )
+
+    fun getTempString(): String {
+        return temp.toString().substringBefore(".") + "°"
+    }
+
+    fun getTempMinAndMaxString(): String {
+        return tempMin.toString().substringBefore(".") + "°" + " / " +
+                tempMax.toString().substringBefore(".") + "°"
+    }
 
 }

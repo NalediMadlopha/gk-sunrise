@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.main.WeatherFragment">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.sunrise.app.ui.main.WeatherViewModel" />
+
+        <variable
+            name="viewState"
+            type="com.sunrise.app.ui.main.ForecastViewState" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_large">
+
+        <ImageView
+            android:id="@+id/current_weather_icon"
+            android:layout_width="@dimen/forecast_weather_icon_width"
+            android:layout_height="@dimen/forecast_weather_icon_height"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/current_weather_day"
+            app:tint="@color/grey"
+            tools:src="@drawable/a01d_svg" />
+
+        <TextView
+            android:id="@+id/current_weather_day"
+            style="@style/TextAppearance.MaterialComponents.Subtitle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_large"
+            app:layout_constraintStart_toEndOf="@id/current_weather_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Sunday, 18 Apr" />
+
+        <TextView
+            android:id="@+id/current_weather_description"
+            style="@style/TextAppearance.MaterialComponents.Body2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_large"
+            app:layout_constraintStart_toEndOf="@id/current_weather_icon"
+            app:layout_constraintTop_toBottomOf="@id/current_weather_day"
+            app:tint="@color/grey"
+            tools:text="Clear - clear sky" />
+
+        <TextView
+            android:id="@+id/current_weather_temperature"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/grey"
+            tools:text="21° / 24°" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -5,7 +5,7 @@ import android.os.Parcelable
 import androidx.annotation.RequiresApi
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 import java.text.SimpleDateFormat
 import java.time.DayOfWeek
 import java.time.LocalDate

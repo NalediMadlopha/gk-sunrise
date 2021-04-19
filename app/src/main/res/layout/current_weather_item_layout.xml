@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.main.WeatherFragment">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.sunrise.app.ui.main.WeatherViewModel" />
+
+        <variable
+            name="viewState"
+            type="com.sunrise.app.ui.main.CurrentWeatherViewState" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/current_weather_day_material_card_view"
+        style="@style/Widget.MaterialComponents.CardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/padding_large">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/padding_large"
+            android:paddingTop="@dimen/padding_large"
+            android:paddingEnd="@dimen/padding_large"
+            android:paddingBottom="@dimen/padding_xlarge">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/current_weather_day_chip"
+                style="@style/TextAppearance.MaterialComponents.Subtitle2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{@string/current_weather_chip_text(viewState.getForecast().main.getTempString())}"
+                tools:text="Today" />
+
+            <TextView
+                android:id="@+id/current_weather_temperature"
+                style="@style/TextAppearance.MaterialComponents.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_large"
+                android:text="@{viewState.getForecast().main.getTempMinAndMaxString()}"
+                app:tint="@color/grey"
+                tools:text="21° / 24°" />
+
+            <ImageView
+                android:id="@+id/current_weather_icon"
+                android:layout_width="@dimen/current_weather_icon_width"
+                android:layout_height="@dimen/current_weather_icon_height"
+                android:layout_marginTop="@dimen/padding_large"
+                app:setWeatherIcon="@{viewState.getForecast().getCurrentWeather().icon}"
+                app:tint="@color/grey"
+                tools:src="@drawable/a01d_svg" />
+
+            <TextView
+                android:id="@+id/current_weather_main"
+                style="@style/TextAppearance.MaterialComponents.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_large"
+                android:text="@{viewState.getForecast().getCurrentWeather().main}"
+                app:tint="@color/grey"
+                tools:text="Clear" />
+
+            <TextView
+                android:id="@+id/current_weather_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_small"
+                android:text="@{viewState.getForecast().getCurrentWeather().description}"
+                tools:text="Clear Sky" />
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

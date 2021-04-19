@@ -6,7 +6,7 @@ import androidx.room.Entity
 import androidx.room.Ignore
 import com.sunrise.app.domain.model.Coord
 import com.sunrise.app.domain.model.Geoloc
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 @Parcelize
 @Entity(tableName = "Coord")

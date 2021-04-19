@@ -1,6 +1,6 @@
 package com.sunrise.app.domain.datasource.forecast
 
-import com.sunrise.app.domain.datasource.OpenWeatherMapApi
+import com.sunrise.app.domain.OpenWeatherMapApi
 import com.sunrise.app.domain.model.ForecastResponse
 import io.reactivex.Single
 import javax.inject.Inject
