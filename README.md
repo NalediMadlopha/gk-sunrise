@@ -3,7 +3,7 @@
 
 # Sunrise
 
-Sunrise is a weather forecast app, which uses the OpenWeatherMap APIs to fetch the current weather data as well as a 5 day forecast data.
+Sunrise is a weather forecast app, which uses the OpenWeatherMap APIs to fetch the current weather data as well as a 5 day forecast data. Download there app here: https://tsfr.io/join/p3fzdx
 
 ## Help
 
@@ -13,7 +13,7 @@ use their own API on a local gradle.properties file which is a secure approach.
 ```
 Building the project locally:
    1. Navigate to the gradle directory of the local `gradle.properties` file which is usually in the home directory in the `.gradle` folder.
-   2. Add this line of code to in the gradle.properties file: OPEN_WEATHER_MAP_API_KEY = "enter your open weather map api key here"
+   2. Add this line of code to the gradle.properties file: OPEN_WEATHER_MAP_API_KEY = "enter your open weather map api key here"
   
 ```
 
