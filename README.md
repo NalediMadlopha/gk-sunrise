@@ -5,6 +5,18 @@
 
 Sunrise is a weather forecast app, which uses the OpenWeatherMap APIs to fetch the current weather data as well as a 5 day forecast data.
 
+## Help
+
+It is not adviceable to share an API keys in public repository. To deal with this, we create a build config variable to allow the developer to
+use their own API on a local gradle.properties file which is a secure approach.
+
+```
+Building the project locally:
+   1. Navigate to the gradle directory of the local `gradle.properties` file which is usually in the home directory in the `.gradle` folder.
+   2. Add this line of code to in the gradle.properties file: OPEN_WEATHER_MAP_API_KEY = "enter your open weather map api key here"
+  
+```
+
 ## Libraries Used
 
 <li><a href="https://developer.android.com/topic/libraries/architecture/navigation/">Navigation</a></li>
