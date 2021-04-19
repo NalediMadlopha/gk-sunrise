@@ -46,4 +46,8 @@ data class CurrentWeatherEntity(
         wind = WindEntity(currentWeather.wind)
     )
 
+    fun getCurrentWeather(): WeatherItem? {
+        return weather?.first()
+    }
+
 }

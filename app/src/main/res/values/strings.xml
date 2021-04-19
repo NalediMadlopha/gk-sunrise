@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Sunrise</string>
+    <string name="unexpected_exception">Status code : 500 Internal server error!</string>
+    <string name="current_weather_chip_text">Today %s</string>
+    <string name="menu_refresh">Refresh</string>
+    <string name="permission_not_granted_message">This Sunrise requires device location to work.</string>
+    <string name="weather_details_not_found">Weather Details Not Found</string>
+    <string name="weather_details_not_found_subtitle">Please ensure that you are connected to the internet.</string>
+    <string name="swipe_down_to_refresh">(Swipe down to refresh)</string>
 </resources>

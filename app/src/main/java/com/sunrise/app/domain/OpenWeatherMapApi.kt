@@ -1,4 +1,4 @@
-package com.sunrise.app.domain.datasource
+package com.sunrise.app.domain
 
 import com.sunrise.app.domain.model.CurrentWeatherResponse
 import com.sunrise.app.domain.model.ForecastResponse

@@ -40,4 +40,13 @@ data class MainEntity(
         tempMax = main?.tempMax
     )
 
+    fun getTempString(): String {
+        return temp.toString().substringBefore(".") + "°"
+    }
+
+    fun getTempMinAndMaxString(): String {
+        return tempMin.toString().substringBefore(".") + "°" + " / " +
+                tempMax.toString().substringBefore(".") + "°"
+    }
+
 }

@@ -1,5 +1,6 @@
 package com.sunrise.app.ui.main
 
+import android.content.SharedPreferences
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import com.sunrise.app.BaseTest
@@ -14,9 +15,9 @@ import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 
-class MainFragmentViewModelTest : BaseTest() {
+class WeatherViewModelTest : BaseTest() {
 
-    private lateinit var fragmentViewModel: MainFragmentViewModel
+    private lateinit var viewModel: WeatherViewModel
 
     @MockK
     private lateinit var mockCurrentWeatherUseCase: CurrentWeatherUseCase
@@ -24,10 +25,13 @@ class MainFragmentViewModelTest : BaseTest() {
     @MockK
     private lateinit var mockForecastUseCase: ForecastUseCase
 
+    @MockK
+    private lateinit var mockSharedPreferences: SharedPreferences
+
     @Before
     override fun setUp() {
         super.setUp()
-        fragmentViewModel = MainFragmentViewModel(mockCurrentWeatherUseCase, mockForecastUseCase)
+        viewModel = WeatherViewModel(mockCurrentWeatherUseCase, mockForecastUseCase, mockSharedPreferences)
     }
 
     @Test
@@ -36,10 +40,10 @@ class MainFragmentViewModelTest : BaseTest() {
         val viewStateLiveData = MutableLiveData<CurrentWeatherViewState>().apply {
             postValue(CurrentWeatherViewState(Status.LOADING, null, null))
         }
-        fragmentViewModel.getCurrentWeatherViewState().observeForever(viewStateObserver)
+        viewModel.getCurrentWeatherViewState().observeForever(viewStateObserver)
         every { mockCurrentWeatherUseCase.execute(any()) } returns viewStateLiveData
 
-        fragmentViewModel.setCurrentWeatherParams(CurrentWeatherUseCase.CurrentWeatherParams("30.0", "20.0", true, "metric"))
+        viewModel.setCurrentWeatherParams(CurrentWeatherUseCase.CurrentWeatherParams("30.0", "20.0", true, "metric"))
 
         val currentWeatherViewStateSlots = mutableListOf<CurrentWeatherViewState>()
         verify { viewStateObserver.onChanged(capture(currentWeatherViewStateSlots)) }
@@ -54,10 +58,10 @@ class MainFragmentViewModelTest : BaseTest() {
         val viewStateLiveData = MutableLiveData<CurrentWeatherViewState>().apply {
             postValue(CurrentWeatherViewState(Status.ERROR, null, null))
         }
-        fragmentViewModel.getCurrentWeatherViewState().observeForever(viewStateObserver)
+        viewModel.getCurrentWeatherViewState().observeForever(viewStateObserver)
         every { mockCurrentWeatherUseCase.execute(any()) } returns viewStateLiveData
 
-        fragmentViewModel.setCurrentWeatherParams(CurrentWeatherUseCase.CurrentWeatherParams("30.0", "20.0", true, "metric"))
+        viewModel.setCurrentWeatherParams(CurrentWeatherUseCase.CurrentWeatherParams("30.0", "20.0", true, "metric"))
 
         val currentWeatherViewStateSlots = mutableListOf<CurrentWeatherViewState>()
         verify { viewStateObserver.onChanged(capture(currentWeatherViewStateSlots)) }
@@ -72,10 +76,10 @@ class MainFragmentViewModelTest : BaseTest() {
         val viewStateLiveData = MutableLiveData<CurrentWeatherViewState>().apply {
             postValue(CurrentWeatherViewState(Status.SUCCESS, null, null))
         }
-        fragmentViewModel.getCurrentWeatherViewState().observeForever(viewStateObserver)
+        viewModel.getCurrentWeatherViewState().observeForever(viewStateObserver)
         every { mockCurrentWeatherUseCase.execute(any()) } returns viewStateLiveData
 
-        fragmentViewModel.setCurrentWeatherParams(CurrentWeatherUseCase.CurrentWeatherParams("30.0", "20.0", true, "metric"))
+        viewModel.setCurrentWeatherParams(CurrentWeatherUseCase.CurrentWeatherParams("30.0", "20.0", true, "metric"))
 
         val currentWeatherViewStateList = mutableListOf<CurrentWeatherViewState>()
         verify { viewStateObserver.onChanged(capture(currentWeatherViewStateList)) }
@@ -90,10 +94,10 @@ class MainFragmentViewModelTest : BaseTest() {
         val viewStateLiveData = MutableLiveData<ForecastViewState>().apply {
             postValue(ForecastViewState(Status.LOADING, null, null))
         }
-        fragmentViewModel.getForecastViewState().observeForever(viewStateObserver)
+        viewModel.getForecastViewState().observeForever(viewStateObserver)
         every { mockForecastUseCase.execute(any()) } returns viewStateLiveData
 
-        fragmentViewModel.setForecastParams(ForecastUseCase.ForecastParams("30.0", "20.0", true, "metric"))
+        viewModel.setForecastParams(ForecastUseCase.ForecastParams("30.0", "20.0", true, "metric"))
 
         val forecastViewStateList = mutableListOf<ForecastViewState>()
         verify { viewStateObserver.onChanged(capture(forecastViewStateList)) }
@@ -108,10 +112,10 @@ class MainFragmentViewModelTest : BaseTest() {
         val viewStateLiveData = MutableLiveData<ForecastViewState>().apply {
             postValue(ForecastViewState(Status.ERROR, null, null))
         }
-        fragmentViewModel.getForecastViewState().observeForever(viewStateObserver)
+        viewModel.getForecastViewState().observeForever(viewStateObserver)
         every { mockForecastUseCase.execute(any()) } returns viewStateLiveData
 
-        fragmentViewModel.setForecastParams(ForecastUseCase.ForecastParams("30.0", "20.0", true, "metric"))
+        viewModel.setForecastParams(ForecastUseCase.ForecastParams("30.0", "20.0", true, "metric"))
 
         val forecastViewStateList = mutableListOf<ForecastViewState>()
         verify { viewStateObserver.onChanged(capture(forecastViewStateList)) }
@@ -126,10 +130,10 @@ class MainFragmentViewModelTest : BaseTest() {
         val viewStateLiveData = MutableLiveData<ForecastViewState>().apply {
             postValue(ForecastViewState(Status.SUCCESS, null, null))
         }
-        fragmentViewModel.getForecastViewState().observeForever(viewStateObserver)
+        viewModel.getForecastViewState().observeForever(viewStateObserver)
         every { mockForecastUseCase.execute(any()) } returns viewStateLiveData
 
-        fragmentViewModel.setForecastParams(ForecastUseCase.ForecastParams("30.0", "20.0", true, "metric"))
+        viewModel.setForecastParams(ForecastUseCase.ForecastParams("30.0", "20.0", true, "metric"))
 
         val forecastViewStateList = mutableListOf<ForecastViewState>()
         verify { viewStateObserver.onChanged(capture(forecastViewStateList)) }

@@ -15,8 +15,8 @@ import dagger.android.support.AndroidSupportInjection
 object AppInjector {
 
     fun init(sunriseApp: SunriseApp) {
-        DaggerAppComponent
-            .builder()
+
+        DaggerAppComponent.builder()
             .application(sunriseApp)
             .build()
             .inject(sunriseApp)

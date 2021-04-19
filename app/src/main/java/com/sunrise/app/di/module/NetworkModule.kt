@@ -6,7 +6,7 @@ import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import com.sunrise.app.core.Constants
 import com.sunrise.app.domain.DefaultRequestInterceptor
-import com.sunrise.app.domain.datasource.OpenWeatherMapApi
+import com.sunrise.app.domain.OpenWeatherMapApi
 import dagger.Module
 import dagger.Provides
 import okhttp3.Cache

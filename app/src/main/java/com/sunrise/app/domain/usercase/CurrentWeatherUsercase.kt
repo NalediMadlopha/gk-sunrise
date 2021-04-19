@@ -42,4 +42,5 @@ class CurrentWeatherUseCase @Inject internal constructor(private val repository:
         val fetchRequired: Boolean,
         val units: String
     ) : Params()
+
 }
